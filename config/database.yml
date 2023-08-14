@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: final_capstone_backend_development
+
+
+test:
+  <<: *default
+  database: final_capstone_backend_test
+
+production:
+  <<: *default
+  database: final_capstone_backend_production
+  username: mudassir_nazir
+  password: 1234
