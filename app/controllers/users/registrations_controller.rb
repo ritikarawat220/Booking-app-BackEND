@@ -1,21 +1,30 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
-  private
-
-  def respond_with(resource, _opts = {})
-    register_success && return if resource.persisted?
-
-    register_failed
+  def create
+    if user_exists?(sign_up_params[:email])
+      render json: { error: 'Email already exits, please change' }
+    else
+      build_resource(sign_up_params)
+      if resource.save
+        sign_in(resource_name, resource)
+        render json: resource
+      else
+        render json: { error: 'Something is wrong, try again' }
+      end
+      
+    end
   end
 
-  def register_success
-    render json: {
-      message: 'Signed up successfully'
-    }, status: :ok
+  protected
+
+  def user_exists?(email)
+    User.exists?(email:)
   end
 
-  def register_failed
-    render json: { message: 'Something went wrong.' }, status: :unprocessable_entity
+  def sign_up_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+
 end
