@@ -11,8 +11,11 @@ module BookingAppBackend
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.session_store :cookie_store, key: '_interslice_session'
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
     # Configuration for the application, engines, and railties goes here.
-    #
+    
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
