@@ -5,7 +5,7 @@ class MembersController < ApplicationController
     user = user_from_token
 
     render json: {
-      message: "If you see this, you're in",
+      message: "If you see this, you're i",
       user:
     }
   end
