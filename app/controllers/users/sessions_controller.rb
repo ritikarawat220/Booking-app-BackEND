@@ -36,7 +36,7 @@ include RackSessionFix
         message: 'Logged in successfully'
       },
       data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
-    }, status: ok
+    }, status: :ok
   end
 
   def respond_to_on_destroy
@@ -49,7 +49,7 @@ include RackSessionFix
       render json: {
         status: 401,
         message: "Couldn't find an active session."
-      }, status: :unauthorised
+      }, status: :unauthorized
     end
   end
 
