@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This migration creates the 'reservations' table for storing flight reservations.
 class CreateReservations < ActiveRecord::Migration[7.0]
   def change
     create_table :reservations do |t|

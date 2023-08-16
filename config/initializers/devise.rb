@@ -1,27 +1,30 @@
 # frozen_string_literal: true
 
-# Assuming you have not yet modified this file, each configuration option below
-# is set to its default value. Note that some are commented out while others
-# are not: uncommented lines are intended to protect your configuration from
-# breaking changes in upgrades (i.e., in the event that future versions of
-# Devise change the default values for those options).
-#
-# Use this hook to configure devise mailer, warden hooks and so forth.
-# Many of these configuration options can be set straight in your model.
+# config/initializers/devise.rb
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '6bdc1ceaffd036b29358b1d69c6b7909d06541dbca84f6e80fea01d0fd77c73a5f9ab037c8058aadd2ea4363c336a9ec9fb940f7db644c3d7f4ef5ec69dbda0c'
+
+  # config.jwt do |jwt|
+  #  jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
+  # end
+
   config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
+    jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
+    jwt.dispatch_requests = [
+      ['POST', %r{^/login$}]
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/logout$}]
+    ]
+    jwt.expiration_time = 30.minutes.to_i
   end
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -39,7 +42,6 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -128,8 +130,6 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '576d3476ae22f4848e24b3c291e7928609b507fc34037adf6dee510b1b700659c32549e7cc9e72c77bd2363c9bd8323c190d4c285ede948ff6a40c002a1b4ccf'
-
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
 
@@ -312,16 +312,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-
-  config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
-    jwt.dispatch_requests = [
-      ['POST', %r{^/login$}]
-    ]
-    jwt.revocation_requests = [
-      ['DELETE', %r{^/logout$}]
-    ]
-    jwt.expiration_time = 30.minutes.to_i
-  end
-
 end

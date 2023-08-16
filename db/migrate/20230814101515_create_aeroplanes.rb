@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This migration creates the 'aeroplanes' table for storing information about airplanes.
 class CreateAeroplanes < ActiveRecord::Migration[7.0]
   def change
     create_table :aeroplanes do |t|
