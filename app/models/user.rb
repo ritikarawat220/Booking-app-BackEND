@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   has_many :reservations
-  has_many :aeroplanes, through: :reservations
+  has_many :aeroplanes, through: :reservations, dependent: :destroy
 
   validates_presence_of :name, :email, :password
 end
