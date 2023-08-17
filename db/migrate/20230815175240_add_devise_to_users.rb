@@ -3,7 +3,7 @@
 # This migration adds Devise authentication modules to the 'users' table.
 class AddDeviseToUsers < ActiveRecord::Migration[7.0]
   def self.up
-    change_table :users do |t|
+    create_table :users do |t|
       ## Database authenticatable
       t.string :name
       t.string :email,              null: false, default: ''
@@ -36,6 +36,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.0]
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
+      t.timestamps
     end
 
     add_index :users, :email,                unique: true
