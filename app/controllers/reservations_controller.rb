@@ -12,7 +12,6 @@ class ReservationsController < ApplicationController
     @reservation = @aeroplane.reservations.find(params[:id])
 
     render json: @reservation, include: [:user], status: :ok
-
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Reservation not found' }, status: :not_found
   end
@@ -43,7 +42,6 @@ class ReservationsController < ApplicationController
     else
       render json: { error: @reservation.errors }, status: :unprocessable_entity
     end
-
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Reservation not found' }, status: :not_found
   end
@@ -54,5 +52,3 @@ class ReservationsController < ApplicationController
     params.required(:reservation).permit(:reservation_date, :returning_date, :city)
   end
 end
-
-

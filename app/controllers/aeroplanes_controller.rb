@@ -2,8 +2,8 @@ class AeroplanesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @aeroplanes = Aeroplane.all 
-    render json: @aeroplanes 
+    @aeroplanes = Aeroplane.all
+    render json: @aeroplanes
   end
 
   def show
@@ -30,7 +30,7 @@ class AeroplanesController < ApplicationController
 
   def destroy
     @aeroplane = Aeroplane.find_by(id: params[:id]) # Use find_by instead of find
-  
+
     if @aeroplane
       if @aeroplane.destroy
         render json: { message: 'Aeroplane successfully deleted' }
@@ -41,7 +41,6 @@ class AeroplanesController < ApplicationController
       render json: { message: 'Aeroplane not found' }, status: :not_found
     end
   end
-  
 
   def aeroplane_params
     params.require(:aeroplane).permit(:name, :model, :description, :price, :booking_price, :image)
