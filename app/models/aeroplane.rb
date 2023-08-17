@@ -9,4 +9,3 @@ class Aeroplane < ApplicationRecord
   validates :booking_price, presence: true
   validates :image, presence: true
 end
-
