@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-RSpec.describe "Aeroplanes", type: :request do
+RSpec.describe 'Aeroplanes', type: :request do
   include Devise::Test::IntegrationHelpers
   include Warden::Test::Helpers # Include Warden test helpers
   Warden.test_mode! # Activate Warden test mode
@@ -9,8 +9,10 @@ RSpec.describe "Aeroplanes", type: :request do
   before do
     @user = User.create(name: 'lumbuye', email: 'text@t.com', password: '123456')
     login_as(@user) # Use Warden's login_as method to set up user authentication
-    @aeroplane = @user.aeroplanes.build(name: 'jet', model: 'jet1', description:'bla', price: 12, booking_price:12, image: 'qwer')      
-    @aeroplane1 = @user.aeroplanes.build(name: 'jet1', model: 'jet2', description:'blabla', price: 17, booking_price:190, image: 'qwert')      
+    @aeroplane = @user.aeroplanes.build(name: 'jet', model: 'jet1', description: 'bla', price: 12, booking_price: 12,
+                                        image: 'qwer')
+    @aeroplane1 = @user.aeroplanes.build(name: 'jet1', model: 'jet2', description: 'blabla', price: 17,
+                                         booking_price: 190, image: 'qwert')
     @aeroplane.save
     @aeroplane1.save
   end
@@ -19,20 +21,19 @@ RSpec.describe "Aeroplanes", type: :request do
     Warden.test_reset! # Reset Warden after each test
   end
 
-
-  describe "GET /aeroplanes" do
-    before do      
-      get '/aeroplanes'     
+  describe 'GET /aeroplanes' do
+    before do
+      get '/aeroplanes'
     end
 
-    it "Returns the http response sucess" do
+    it 'Returns the http response sucess' do
       expect(response).to have_http_status(:success)
     end
 
     it 'Returns the render' do
-      expect(response.content_type).to eq("application/json; charset=utf-8") 
-    end     
-      
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+    end
+
     it 'Returns the body content' do
       aeroplane_response = JSON.parse(response.body)
       expect(aeroplane_response.length).to eq(2)
@@ -49,14 +50,13 @@ RSpec.describe "Aeroplanes", type: :request do
     end
 
     it 'Returns the render' do
-      expect(response.content_type).to eq("application/json; charset=utf-8") 
-    end   
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+    end
 
     it 'Response body' do
       aeroplane_response = JSON.parse(response.body)
       expect(aeroplane_response['name']).to eq(@aeroplane.name)
     end
-
   end
 
   describe 'POST /aeroplanes' do
@@ -65,28 +65,28 @@ RSpec.describe "Aeroplanes", type: :request do
         aeroplane: {
           name: 'jet1',
           model: 'jet2',
-          description:'blabla',
+          description: 'blabla',
           price: 17,
-          booking_price:190,
-          image: 'qwert'    
+          booking_price: 190,
+          image: 'qwert'
         }
       }
 
       post '/aeroplanes/create', params: @aeroplane_params
     end
 
-    it 'Creates a new aeroplane' do     
+    it 'Creates a new aeroplane' do
       expect(response).to have_http_status(:created)
     end
 
-      it 'Returns the render' do
-        expect(response.content_type).to eq("application/json; charset=utf-8") 
-      end 
+    it 'Returns the render' do
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+    end
 
-      it 'response for name' do
-        aeroplane_response = JSON.parse(response.body)
-        expect(aeroplane_response['name']).to eq(@aeroplane_params[:aeroplane][:name])
-      end
+    it 'response for name' do
+      aeroplane_response = JSON.parse(response.body)
+      expect(aeroplane_response['name']).to eq(@aeroplane_params[:aeroplane][:name])
+    end
   end
 
   describe 'delete' do
@@ -95,5 +95,4 @@ RSpec.describe "Aeroplanes", type: :request do
       expect(response).to have_http_status(:not_found)
     end
   end
-  
 end

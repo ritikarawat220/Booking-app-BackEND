@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Aeroplane, type: :model do
   before do
     @user = User.new(name: 'Masaka', email: 'masaka@g.com', password: '123456')
-    @aeroplane = @user.aeroplanes.build(name: 'jet', model: 'jet1', description:'bla', price: 12, booking_price:12, image: 'qwer')
+    @aeroplane = @user.aeroplanes.build(name: 'jet', model: 'jet1', description: 'bla', price: 12, booking_price: 12,
+                                        image: 'qwer')
   end
 
   it 'Should be valid if all the items are filled' do
@@ -60,6 +61,4 @@ RSpec.describe Aeroplane, type: :model do
       expect(association.macro).to eq :has_many
     end
   end
-  
 end
-

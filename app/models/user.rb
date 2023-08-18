@@ -9,5 +9,4 @@ class User < ApplicationRecord
   has_many :aeroplanes, through: :reservations, dependent: :destroy
 
   validates_presence_of :name, :email, :password
-  
 end

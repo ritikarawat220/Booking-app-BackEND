@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe Reservation, type: :model do
   before do
     @user = User.create(name: 'Masaka', email: 'masaka@g.com', password: '123456')
-    @aeroplane = Aeroplane.create(name: 'jet', model: 'jet1', description: 'bla', price: 12, booking_price: 12, image: 'qwer')
-    @reservation = Reservation.new(reservation_date: '2020/01/01', returning_date: '2021/11/11', city: 'kampala', user: @user, aeroplane: @aeroplane)
+    @aeroplane = Aeroplane.create(name: 'jet', model: 'jet1', description: 'bla', price: 12, booking_price: 12,
+                                  image: 'qwer')
+    @reservation = Reservation.new(reservation_date: '2020/01/01', returning_date: '2021/11/11', city: 'kampala',
+                                   user: @user, aeroplane: @aeroplane)
   end
 
   it 'Should be valid if all values are input' do
@@ -39,5 +41,4 @@ RSpec.describe Reservation, type: :model do
       expect(association.macro).to eq :belongs_to
     end
   end
-
 end

@@ -8,10 +8,9 @@ RSpec.describe User, type: :model do
 
   it 'Should be invalid with a missing parameter' do
     @user = User.new(name: '', email: '', password: '')
-    expect(@user).not_to be_valid    
+    expect(@user).not_to be_valid
     expect(@user.errors.messages[:name]).to include("can't be blank")
     expect(@user.errors.messages[:email]).to include("can't be blank")
     expect(@user.errors.messages[:password]).to include("can't be blank")
   end
-
 end

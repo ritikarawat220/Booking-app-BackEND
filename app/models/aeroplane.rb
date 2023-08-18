@@ -1,6 +1,5 @@
 # This class represents an aeroplane in the application.
 class Aeroplane < ApplicationRecord
-
   has_many :reservations, dependent: :destroy
   has_many :users, through: :reservations
 
@@ -10,5 +9,4 @@ class Aeroplane < ApplicationRecord
   validates :price, presence: true
   validates :booking_price, presence: true
   validates :image, presence: true
-  
 end
