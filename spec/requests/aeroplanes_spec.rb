@@ -3,12 +3,12 @@ require 'capybara/rspec'
 
 RSpec.describe 'Aeroplanes', type: :request do
   include Devise::Test::IntegrationHelpers
-  include Warden::Test::Helpers # Include Warden test helpers
-  Warden.test_mode! # Activate Warden test mode
+  include Warden::Test::Helpers
+  Warden.test_mode!
 
   before do
-    @user = User.create(name: 'lumbuye', email: 'text@t.com', password: '123456')
-    login_as(@user) # Use Warden's login_as method to set up user authentication
+    @user = User.create(name: 'lumbuye', email: 'text@t.com', password: '123456', password_confirmation: '123456')
+    login_as(@user)
     @aeroplane = @user.aeroplanes.build(name: 'jet', model: 'jet1', description: 'bla', price: 12, booking_price: 12,
                                         image: 'qwer')
     @aeroplane1 = @user.aeroplanes.build(name: 'jet1', model: 'jet2', description: 'blabla', price: 17,
@@ -18,7 +18,7 @@ RSpec.describe 'Aeroplanes', type: :request do
   end
 
   after do
-    Warden.test_reset! # Reset Warden after each test
+    Warden.test_reset!
   end
 
   describe 'GET /aeroplanes' do
@@ -34,7 +34,7 @@ RSpec.describe 'Aeroplanes', type: :request do
       expect(response.content_type).to eq('application/json; charset=utf-8')
     end
 
-    it 'Returns the body content' do
+    it 'Returns the response content type' do
       aeroplane_response = JSON.parse(response.body)
       expect(aeroplane_response.length).to eq(2)
     end
@@ -49,7 +49,7 @@ RSpec.describe 'Aeroplanes', type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    it 'Returns the render' do
+    it 'Returns the response content type' do
       expect(response.content_type).to eq('application/json; charset=utf-8')
     end
 
@@ -79,7 +79,7 @@ RSpec.describe 'Aeroplanes', type: :request do
       expect(response).to have_http_status(:created)
     end
 
-    it 'Returns the render' do
+    it 'Returns the response content type' do
       expect(response.content_type).to eq('application/json; charset=utf-8')
     end
 
