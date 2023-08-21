@@ -8,7 +8,7 @@ class AeroplanesController < ApplicationController
 
   def show
     @aeroplane = Aeroplane.find(params[:id])
-    render json: @aeroplane, serializer:  AeroplaneSerializer
+    render json: @aeroplane, serializer: AeroplaneSerializer
   rescue ActiveRecord::RecordNotFound
     render json: { message: 'The chosen aeroplane id does not exist' }, status: :not_found
   end

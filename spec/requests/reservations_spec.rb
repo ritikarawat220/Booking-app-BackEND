@@ -10,9 +10,10 @@ RSpec.describe 'Aeroplanes', type: :request do
     @user = User.create(name: 'lumbuye', email: 'text@t.com', password: '123456', password_confirmation: '123456')
     login_as(@user)
     @aeroplane = Aeroplane.create(name: 'jet', model: 'jet1', description: 'bla', price: 12, booking_price: 12,
-                                        image: 'qwer')
+                                  image: 'qwer')
 
-    @reservation = Reservation.create(reservation_date: '2020/01/01', returning_date: '2021/11/11', city: 'kampala', user: @user, aeroplane: @aeroplane)
+    @reservation = Reservation.create(reservation_date: '2020/01/01', returning_date: '2021/11/11', city: 'kampala',
+                                      user: @user, aeroplane: @aeroplane)
   end
 
   after do
@@ -36,7 +37,7 @@ RSpec.describe 'Aeroplanes', type: :request do
       expect(reservation_response.length).to eq(1)
       expect(reservation_response).to be_an(Array)
       expect(reservation_response[0]['city']).to eq(@reservation.city.to_s)
-    end    
+    end
   end
 
   describe 'GET /aeroplanes/#{aeroplanes.id}/reservations/#{reservations.id}' do
@@ -55,24 +56,22 @@ RSpec.describe 'Aeroplanes', type: :request do
     it 'Should return the body response' do
       reservation_response = JSON.parse(response.body)
       expect(reservation_response).to be_an(Hash)
-      
     end
   end
 
   describe 'POST /aeroplanes/:id/reservations/create' do
     before do
       @reservation_params = {
-        reservation: { reservation_date: '2020/01/01', 
-        returning_date: '2021/11/11', 
-        city: 'kampala', 
-        user: @user, 
-        aeroplane: @aeroplane
-        }
+        reservation: { reservation_date: '2020/01/01',
+                       returning_date: '2021/11/11',
+                       city: 'kampala',
+                       user: @user,
+                       aeroplane: @aeroplane }
       }
 
       post "/aeroplanes/#{@aeroplane.id}/reservations", params: @reservation_params
     end
-    
+
     it 'Creates a new reservation' do
       expect(response).to have_http_status(:created)
     end
@@ -93,5 +92,4 @@ RSpec.describe 'Aeroplanes', type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-  
 end
