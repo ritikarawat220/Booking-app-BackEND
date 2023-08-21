@@ -3,12 +3,12 @@ class AeroplanesController < ApplicationController
 
   def index
     @aeroplanes = Aeroplane.all
-    render json: @aeroplanes
+    render json: @aeroplanes, each_serializer: AeroplaneSerializer
   end
 
   def show
     @aeroplane = Aeroplane.find(params[:id])
-    render json: @aeroplane
+    render json: @aeroplane, serializer:  AeroplaneSerializer
   rescue ActiveRecord::RecordNotFound
     render json: { message: 'The chosen aeroplane id does not exist' }, status: :not_found
   end
