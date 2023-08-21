@@ -48,3 +48,17 @@ RSpec.describe Aeroplane, type: :model do
       expect(@aeroplane.errors.messages[:image]).to include("can't be blank")
     end
   end
+  
+  describe 'Associations' do
+    it 'Has many users through reservations' do
+      association = described_class.reflect_on_association(:users)
+      expect(association.macro).to eq :has_many
+      expect(association.options[:through]).to eq :reservations
+    end
+
+    it 'Has many reservations' do
+      association = described_class.reflect_on_association(:reservations)
+      expect(association.macro).to eq :has_many
+    end
+  end
+end
