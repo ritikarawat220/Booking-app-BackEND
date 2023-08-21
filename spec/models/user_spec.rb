@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it 'Should be valid with all parameters' do
-    @user = User.new(name: 'Masaka', email: 'masaka@g.com', password: '123456', password_confirmation: '123456')
+    @user = User.new(name: 'Mudassir', email: 'mudasir@g.com', password: '1234567', password_confirmation: '1234567')
     expect(@user).to be_valid
   end
 
