@@ -25,4 +25,19 @@ class ReservationsController < ApplicationController
       render json: { errors: @reservation.errors }, status: :unprocessable_entity
     end
   end
-  
+  def destroy
+    @aeroplane = Aeroplane.find(params[:aeroplane_id])
+    @reservation = @aeroplane.reservations.find(params[:id])
+    if @reservation.destroy
+      render json: { message: 'Reservation deleted successfullu' }, status: :ok
+    else
+      render json: { error: @reservation.errors }, status: :unprocessable_entity
+    end
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Reservation not found' }, status: :not_found
+  end
+  private
+  def reservation_params
+    params.required(:reservation).permit(:reservation_date, :returning_date, :city)
+  end
+end
