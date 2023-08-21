@@ -52,7 +52,9 @@ group :development do
 end
 
 gem 'devise', '~> 4.9'
+
 gem 'devise-jwt', '~> 0.11.0'
-gem 'jsonapi-serializer', '~> 2.2'
 
 gem 'rails-controller-testing', '~> 1.0'
+
+gem "active_model_serializers", "~> 0.10.13"

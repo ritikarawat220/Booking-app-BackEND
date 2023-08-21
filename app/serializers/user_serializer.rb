@@ -1,5 +1,4 @@
 # This serializer class is responsible for converting User objects into JSONAPI format.
-class UserSerializer
-  include JSONAPI::Serializer
+class UserSerializer < ActiveModel::Serializer
   attributes :id, :email
 end

@@ -3,12 +3,12 @@ class ReservationsController < ApplicationController
   def index
     @aeroplane = Aeroplane.find(params[:aeroplane_id])
     @reservations = @aeroplane.reservations.where(user_id: current_user.id).all
-    render json: @reservations
+    render json: @reservations, each_serializer: ReservationSerializer
   end
   def show
     @aeroplane = Aeroplane.find(params[:aeroplane_id])
     @reservation = @aeroplane.reservations.find(params[:id])
-    render json: @reservation, include: [:user], status: :ok
+    render json: @reservation, serializer: ReservationSerializer
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Reservation not found' }, status: :not_found
   end

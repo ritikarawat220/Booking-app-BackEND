@@ -32,12 +32,13 @@ module Users
     private
 
     def respond_with(resource, _opts = {})
+    user_serializer = UserSerializer.new(resource)
       render json: {
         status: {
           code: 200,
           message: 'Logged in successfully'
         },
-        data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
+        user: user_serializer
       }, status: :ok
     end
 
