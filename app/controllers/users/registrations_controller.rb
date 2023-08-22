@@ -65,7 +65,7 @@ module Users
     private
 
     def respond_with(resource, _opts = {})
-    user_serializer = UserSerializer.new(resource)
+      user_serializer = UserSerializer.new(resource)
       if resource.persisted?
         render json: {
           status: { code: 200, message: 'Signed up successfully.' },

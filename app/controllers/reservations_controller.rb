@@ -5,6 +5,7 @@ class ReservationsController < ApplicationController
     @reservations = @aeroplane.reservations.where(user_id: current_user.id).all
     render json: @reservations, each_serializer: ReservationSerializer
   end
+
   def show
     @aeroplane = Aeroplane.find(params[:aeroplane_id])
     @reservation = @aeroplane.reservations.find(params[:id])
@@ -12,10 +13,12 @@ class ReservationsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Reservation not found' }, status: :not_found
   end
+
   def new
     @aeroplane = current_user.aeroplanes.find_by(params[:id])
     @reservation = @aeroplane.reservations.new
   end
+
   def create
     @aeroplane = Aeroplane.find(params[:aeroplane_id])
     @reservation = current_user.reservations.build(reservation_params.merge(aeroplane: @aeroplane))
@@ -25,6 +28,7 @@ class ReservationsController < ApplicationController
       render json: { errors: @reservation.errors }, status: :unprocessable_entity
     end
   end
+
   def destroy
     @aeroplane = Aeroplane.find(params[:aeroplane_id])
     @reservation = @aeroplane.reservations.find(params[:id])
@@ -36,7 +40,9 @@ class ReservationsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Reservation not found' }, status: :not_found
   end
+
   private
+
   def reservation_params
     params.required(:reservation).permit(:reservation_date, :returning_date, :city)
   end
