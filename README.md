@@ -69,12 +69,12 @@
 - Reserve aeroplane for purchase.
 
 -[] API Documentation
-- Check here API documentation <a href="">Aeroplane resrvation API documentation</a>
+- Check here API documentation <a href="http://127.0.0.1:4000/api-docs/index.html">Aeroplane resrvation API documentation</a>
 
 -[] Kanban Board
 <ul>
   <li>Check here <a href="https://github.com/users/ritikarawat220/projects/5">Kanbaan</a></li>
-  <li>Kanbaan board screen shot <a href="Kanbaan screen shot"></a></li>
+  
 </ul>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
