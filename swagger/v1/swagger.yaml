@@ -260,6 +260,57 @@ paths:
       responses:
         '204':
           description: Aeroplane successfully deleted
+  "/aeroplanes/:aeroplane_id/reservations/create":
+    post:
+      summary: Creates a specific aeroplane purchase reservation
+      tags:
+      - Reservations
+      description: Creates a booking?reservation for a specifi aeroplane
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Aeroplane ID
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_date:
+                  format: date
+                returning_date:
+                  format: date
+                city:
+                  type: string
+      responses:
+        '201':
+          application/json:
+            description: Created successfully
+            content:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    reservation_date:
+                      type: date
+                    returning_date:
+                      type: date
+                    city:
+                      type: string
+      '400':
+        description: Bad request
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                error:
+                  type: string
   "/aeroplanes/{:id}/reservations":
     get:
       summary: Get all payment reservations made on an aeroplane
@@ -296,6 +347,12 @@ paths:
       - Reservations
       description: Deletes a reservation for a given aeroplane
       parameters:
+      - name: aeroplane_id
+        in: path
+        required: true
+        description: Reservation ID
+        schema:
+          type: integer
       - name: reservation_id
         in: path
         required: true

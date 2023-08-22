@@ -1,6 +1,10 @@
+# We have to disable this linters check to enable api doc creation
+# rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 
 RSpec.configure do |config|
+  # Your code here
+
   # Specify a root folder where Swagger JSON files are generated
   # NOTE: If you're using the rswag-api to serve API descriptions, you'll need
   # to ensure that it's configured to serve Swagger from the same folder
@@ -199,7 +203,7 @@ RSpec.configure do |config|
                 }
               },
               '403': {
-                description: 'Invalid or missing bearer token. Please log in again using a valid token from devise-jwt.',
+                description: 'Invalid or missing bearer token. Login again using a valid token from devise-jwt.',
                 content: {
                   'application/json': {
                     schema: {
@@ -207,7 +211,7 @@ RSpec.configure do |config|
                       properties: {
                         error_message: {
                           type: 'string',
-                          description: 'Invalid or missing bearer token. Please log in again using a valid token from devise-jwt.'
+                          description: 'Invalid or missing bearer token. login using a valid token from devise-jwt.'
                         }
                       }
                     }
@@ -387,14 +391,14 @@ RSpec.configure do |config|
 
           }
         },
-        '/aeroplanes/{:id}': {
+        '/aeroplanes/{aeroplane_id}': {
           delete: {
             summary: 'Delete an aeroplane by id',
             tags: ['Aeroplanes'],
             description: 'Deletes a given aeroplane',
             parameters: [
               {
-                name: 'id',
+                name: 'aeroplane_id',
                 in: 'path',
                 required: true,
                 description: 'Aeroplane ID',
@@ -410,7 +414,7 @@ RSpec.configure do |config|
             }
           }
         },
-        '/aeroplanes/{:id}/reservations': {
+        '/aeroplanes/:aeroplane_id/reservations/create': {
           post: {
             summary: 'Creates a specific aeroplane purchase reservation',
             tags: ['Reservations'],
@@ -528,15 +532,15 @@ RSpec.configure do |config|
                 description: 'Reservation ID',
                 schema: {
                   type: 'integer'
-                },
-                name: 'reservation_id',
+                }
+              },
+              { name: 'reservation_id',
                 in: 'path',
                 required: true,
                 description: 'Reservation ID',
                 schema: {
                   type: 'integer'
-                }
-              }
+                } }
             ],
             responses: {
               '204': {
@@ -603,3 +607,4 @@ RSpec.configure do |config|
   # Defaults to json. Accepts ':json' and ':yaml'.
   config.swagger_format = :yaml
 end
+# rubocop:enable Metrics/BlockLength

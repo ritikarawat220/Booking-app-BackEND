@@ -66,7 +66,7 @@
 
 - Authentication: Signup, Login, Logout.
 - Create aeroplane
-- Reserve aeroplane for purchase
+- Reserve aeroplane for purchase.
 
 -[] API Documentation
 - Check here API documentation <a href="">Aeroplane resrvation API documentation</a>

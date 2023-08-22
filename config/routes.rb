@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
 
-  post 'reservations/create', to: 'reservations#create'
+  
   post '/aeroplanes/create', to: 'aeroplanes#create'
+  post '/aeroplanes/:aeroplane_id/reservations/create', to: 'reservations#create'
 
   get '/current_user', to: 'current_user#index'
 
