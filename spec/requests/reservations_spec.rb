@@ -19,7 +19,7 @@ RSpec.describe 'Aeroplanes', type: :request do
   after do
     Warden.test_reset!
   end
-  describe 'GET /aeroplanes/#{aeroplanes.id}/reservations' do
+  describe 'GET /aeroplanes/aeroplane.id/reservations' do
     before do
       get "/aeroplanes/#{@aeroplane.id}/reservations"
     end
@@ -40,7 +40,7 @@ RSpec.describe 'Aeroplanes', type: :request do
     end
   end
 
-  describe 'GET /aeroplanes/#{aeroplanes.id}/reservations/#{reservations.id}' do
+  describe 'GET /aeroplanes/aeroplanes.id/reservations/reservations.id' do
     before do
       get "/aeroplanes/#{@aeroplane.id}/reservations/#{@reservation.id}"
     end

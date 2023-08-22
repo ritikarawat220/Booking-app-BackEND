@@ -44,6 +44,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'rswag-specs', '~> 2.10'
 end
 
 group :development do
@@ -57,4 +58,9 @@ gem 'devise-jwt', '~> 0.11.0'
 
 gem 'rails-controller-testing', '~> 1.0'
 
-gem "active_model_serializers", "~> 0.10.13"
+gem 'active_model_serializers', '~> 0.10.13'
+
+gem 'rswag-api', '~> 2.10'
+gem 'rswag-ui', '~> 2.10'
+
+gem 'rswag', '~> 2.10'
