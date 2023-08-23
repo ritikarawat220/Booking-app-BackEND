@@ -1,8 +1,9 @@
 databases:
   - name: postgres
     ipAllowList: []
-  databaseName: aeroplne
-  user: aeroplne
+
+databaseName: aeroplne
+user: aeroplne
 
 services:
   - type: web
