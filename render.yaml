@@ -1,6 +1,6 @@
 databases:
   - name: postgres
-  ipAllowList: []
+    ipAllowList: []
   databaseName: aeroplne
   user: aeroplne
 
