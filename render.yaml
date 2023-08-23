@@ -1,14 +1,15 @@
 databases:
   - name: aeroplanes
-    databaseName: aeroplanes
-    user: aeroplanes_user
+  ipAllowList: []
+  databaseName: aeroplanes
+  user: aeroplanes_user
 
 services:
   - type: web
-    name: aeroplanes
+    name: aeroplne
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: "bundle exec rails s"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
