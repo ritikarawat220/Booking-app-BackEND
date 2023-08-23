@@ -1,18 +1,18 @@
 databases:
-  - name: micronaut
-    databaseName: micronaut_jl9w
-    user: micronaut_jl9w_user
+  - name: aeroplanes
+    databaseName: aeroplanes
+    user: aeroplanes_user
 
 services:
   - type: web
-    name: backendAPI
+    name: aeroplanes
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: micronaut_jl9w
+          name: aeroplanes
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
