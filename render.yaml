@@ -1,20 +1,19 @@
 databases:
-  - name: postgres
-    ipAllowList: []
-
-databaseName: aeroplne
-user: aeroplne
+  - name: aeroplanes
+  ipAllowList: []
+  databaseName: aeroplanes
+  user: aeroplanes_user
 
 services:
   - type: web
-    name: aeroplne
+    name: AEROPLANE
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec rails s"
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: aeroplanes
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
