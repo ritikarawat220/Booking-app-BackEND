@@ -2,6 +2,7 @@
 class Aeroplane < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :users, through: :reservations
+
   validates :name, presence: true
   validates :model, presence: true
   validates :description, presence: true
