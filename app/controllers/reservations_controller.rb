@@ -1,8 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @aeroplane = Aeroplane.find(params[:aeroplane_id])
-    @reservations = @aeroplane.reservations.where(user_id: current_user.id).all
+    @reservations = current_user.reservations.include(:aeroplane)
     render json: @reservations, each_serializer: ReservationSerializer
   end
 
