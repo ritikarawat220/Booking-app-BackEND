@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   post '/aeroplanes/create', to: 'aeroplanes#create'
   post '/aeroplanes/:aeroplane_id/reservations/create', to: 'reservations#create'
+  get '/reservations', to: 'reservations#index'
 
   get '/current_user', to: 'current_user#index'
 

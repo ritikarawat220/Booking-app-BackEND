@@ -5,7 +5,7 @@
 </div>
 
 
-> # Aeroplane Reservation API
+> # Aeroplane Reservation
 <!-- 
 
 | Project Veiw Screenshots|
@@ -37,9 +37,9 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [Aeroplane Reservation API] <a name="about-project"></a>
+# 📖 [Aeroplane Reservation ] <a name="about-project"></a>
 
-**[Aeroplane Reservation API]** is a rails API used to to reservae an aeroplane for purchase and uses JSON web token to authenticate user login, signup and logout.
+**[Aeroplane Reservation]** is an app that allows you to book/reserve the purchase of an aeroplane.
 
 ## Link for the:<a href="https://github.com/ritikarawat220/Booking-app-FrontEND"> Frontend repository </a>
 
@@ -69,7 +69,7 @@
 - Reserve aeroplane for purchase.
 
 -[] API Documentation
-- Check here API documentation <a href="http://127.0.0.1:4000/api-docs/index.html">Aeroplane resrvation API documentation</a>
+- Check here API documentation <a href="https://aeroplane-find.onrender.com/api-docs/index.html">Aeroplane resrvation API documentation</a>
 
 -[] Kanban Board
 <ul>
@@ -81,7 +81,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]( )
+- [Live Demo Link](https://aeroplane-reservation.onrender.com)
 
 ## Video demo <a name="live-demo"></a>  -->
 
@@ -166,6 +166,24 @@ npm test
 - Twitter: [@twitterhandle](https://www.twitter.com/@mugagga_frank)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/frank-mugagga)
 
+ **Ritika Rawat**
+
+- GitHub: [@githubhandle](https://github.com/ritikarawat220)
+- Twitter: [@twitterhandle](https://www.twitter.com/@ritika)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/rawatritika)
+
+ **Jean Jacques Buhendwa**
+
+- GitHub: [@githubhandle](https://www.github.com/jeanbuhendwa)
+- Twitter: [@twitterhandle](https://www.twitter.com/@JeanjacqueI)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/johnbuhendwa)
+
+ **Mudassir Nazir**
+
+- GitHub: [@githubhandle](https://github.com/Rana-Mudassir)
+- Twitter: [@twitterhandle](https://www.twitter.com/@mudassir)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mudassir-nazir/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -195,7 +213,7 @@ Feel free to check the [issues page](https://github.com/ritikarawat220/Booking-a
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 - Microverse. 
-- Original design by Murat Korkmaz
+- Original design by Murat Korkmaz (https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign/modules/173005583)
 
 
 
