@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @reservations = current_user.reservations.include(:aeroplane)
+    @reservations = current_user.reservations.includes(:aeroplane)
     render json: @reservations, each_serializer: ReservationSerializer
   end
 
