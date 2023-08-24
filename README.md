@@ -178,7 +178,7 @@ npm test
 - Twitter: [@twitterhandle](https://www.twitter.com/@JeanjacqueI)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/johnbuhendwa)
 
- **Mudassir Nazir**
+ **Mudassir Nazir*
 
 - GitHub: [@githubhandle](https://github.com/Rana-Mudassir)
 - Twitter: [@twitterhandle]()
