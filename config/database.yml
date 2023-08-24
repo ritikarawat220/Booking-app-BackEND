@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Booking-app-BackEND_development
+
+
+test:
+  <<: *default
+  database: Booking-app-BackEND_test
+
+production:
+  <<: *default
+  database: Booking-app-BackEND_production
+  username: Booking-app-BackEND
+  password: <%= ENV["BOOKING_APP_BACKEND_DATABASE_PASSWORD"] %>
