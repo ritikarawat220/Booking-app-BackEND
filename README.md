@@ -69,7 +69,7 @@
 - Reserve aeroplane for purchase.
 
 -[] API Documentation
-- Check here API documentation <a href="http://127.0.0.1:4000/api-docs/index.html">Aeroplane resrvation API documentation</a>
+- Check here API documentation <a href="https://aeroplane-find.onrender.com/api-docs/index.html">Aeroplane resrvation API documentation</a>
 
 -[] Kanban Board
 <ul>
@@ -81,7 +81,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]( )
+- [Live Demo Link](https://aeroplane-find.onrender.com )
 
 ## Video demo <a name="live-demo"></a>  -->
 
@@ -165,6 +165,24 @@ npm test
 - GitHub: [@githubhandle](https://www.github.com/FrankMugagga)
 - Twitter: [@twitterhandle](https://www.twitter.com/@mugagga_frank)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/frank-mugagga)
+
+ **Ritika Rawat**
+
+- GitHub: [@githubhandle](https://github.com/ritikarawat220)
+- Twitter: [@twitterhandle]()
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/rawatritika)
+
+ **Jean Jacques Buhendwa**
+
+- GitHub: [@githubhandle](https://www.github.com/jeanbuhendwa)
+- Twitter: [@twitterhandle](https://www.twitter.com/@JeanjacqueI)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/johnbuhendwa)
+
+ **Mudassir Nazir**
+
+- GitHub: [@githubhandle](https://github.com/Rana-Mudassir)
+- Twitter: [@twitterhandle]()
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mudassir-nazir/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
